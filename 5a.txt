@@ -59,3 +59,19 @@ printf("%c",plain[i]);
 }
 getch();
 }
+
+1b
+ping yahoo.com
+ping yahoo.com –f -l 1500
+
+5b
+Cat file.txt
+Hashcat -m 0 hashfile.txt rockyou.txt
+Hashcat -m 0 –show hashfile.txt rockyou.txt
+
+6b
+Snow -C -m “My Account number 1234567” –p “password123” Sample.txt Test.txt
+snow –C –p “password123” test.txt
+
+8b
+copy /b B.jpg + A.txt C.jpg
