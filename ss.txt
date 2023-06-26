@@ -191,6 +191,51 @@ printf("\nInvalid expression\n");
 return 0;
 }
 
+6a.l
+%{
+#include "y.tab.h"
+%}
+%%
+[0-9]+(\.[0-9]+)? {return NUM;}
+[a-zA-Z][_a-zA-Z0-9]* {return ID;}
+[\t] ;
+\n {return 0;}
+. {return yytext[0];}
+%%
+int yywrap() { }
+
+6a.y
+%{
+#include <stdio.h>
+#include<stdlib.h>
+%}
+%token NUM ID
+%left '+''-'
+%left '/''*'
+
+%%
+expr:e {printf("Valid expression\n"); return 0;}
+e:e'+'e 
+| e'-'e 
+| e'*'e 
+| e'/'e 
+| '('e')' 
+| NUM 
+| ID      ;
+%%
+int yywrap() {   }
+int main()
+{
+printf("\nType the expression\n");
+yyparse();
+return 0;
+}
+int yyerror()
+{
+printf("\nInvalid expression\n");
+return 0;
+} 
+
 6b.l
 %{
 #include "y.tab.h"
