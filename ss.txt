@@ -223,7 +223,6 @@ e:e'+'e
 | NUM 
 | ID      ;
 %%
-int yywrap() {   }
 int main()
 {
 printf("\nType the expression\n");
